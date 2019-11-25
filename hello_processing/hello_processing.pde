@@ -2,13 +2,14 @@
  //Hello Processing
  //A circle bounces around the screen and changes color when it hits a wall. 
  //It also prints "hello world" on the console
-  int aPos = 150;
-  int bPos = 150;
+  double aPos = 150;
+  double bPos = 150;
   int cPos = 150;
   int dPos = 150;
   //These are the 4 coordinates of the ellipse; aPos and Bpos are the position, cPos and dPos are the size
-  int x = 1;
-  int y = 1;
+  double x = 1;
+  double y = 1;
+  int direction = 1;
   //Moves forward by one each time
   int ColorA = 0;
   int ColorB = 150;
@@ -18,7 +19,6 @@
   int B = 20;
   int C = 40;
   //These are the variables added to the color each time, so that it changes from blue to red and back again
-  int direct = -2;
 void setup ()
 {
   size (300,300);  
@@ -29,7 +29,7 @@ void draw ()
 {
     background (255,150,0);
     //Sets the background color (Orange)
-    ellipse (aPos,bPos,cPos,dPos);
+    ellipse ((int)aPos, (int)bPos,cPos,dPos);
     //Sets the position of the ellipse
     fill (ColorA,ColorB,ColorC);
     //Colors the ellipse
@@ -37,16 +37,15 @@ void draw ()
     aPos = aPos + x;
     bPos = bPos + y;
     //Moves the position each time
-    if (aPos >= (300-(cPos/2)) || aPos <= (0 + (cPos/2)))
+    if (aPos >= (300-(cPos/2)) 
+        || aPos <= (0 + (cPos/2))
+        || bPos >= (300-(dPos/2)) 
+        || bPos <= (0 + (dPos/2)))
     //If the ellipse gets close to the corner...
-    {
-      if(direct == -2)
-        direct = -1;
-      if(direct == -1)
-        direct = -2;
-        
-      x = direct*x;
-      y = -y;
+    { 
+      direction *= -1;
+      x = direction * Math.random() * 2;
+      y = direction * Math.random() * 2;
       //...switch directions
       ColorA = ColorA + A;
       ColorB = ColorB - B;
