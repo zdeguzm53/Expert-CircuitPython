@@ -9,7 +9,9 @@
       
    - *Image*
    \
-   ![pic](/pictures/pic.PNG)
+   ![hello_processing_pic1](/pictures/hello_processing_pic1.PNG)
+   
+   ![hello_processing_pic2](/pictures/hello_processing_pic2.PNG)
    - *Reflections*
    \
       At first the code kept the direction and slope of the circle's movement constant, so it would only bounce from corner to corner. Then I used the java function Math.random() to make sure the circle moved a different way every time it hit a wall. 
